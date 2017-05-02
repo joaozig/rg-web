@@ -51,4 +51,9 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  namespace :cms do
+    root 'dashboard#index'
+    get 'dashboard' => 'dashboard#index'
+    resources :admins
+  end
 end
