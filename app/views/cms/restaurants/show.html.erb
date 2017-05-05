@@ -13,6 +13,10 @@
 		<b>Phone:</b> <%= @restaurant.phone %>	<br>
 		<b>Latitude:</b> <%= @restaurant.latitude %>	<br>
 		<b>Longitude:</b> <%= @restaurant.longitude %>	<br>
+		<b>Infos:</b><br>
+		<% @restaurant.infos.each do |info| %>
+			- <%= "<i class='fa fa-#{info.icon} fa-fw'></i> #{info.title}".html_safe %><br>
+		<% end %>
 	</div>
 </div>
 

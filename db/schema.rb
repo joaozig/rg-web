@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170505170831) do
+ActiveRecord::Schema.define(version: 20170505173048) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,14 @@ ActiveRecord::Schema.define(version: 20170505170831) do
   add_index "infos_places", ["info_id"], name: "index_infos_places_on_info_id", using: :btree
   add_index "infos_places", ["place_id"], name: "index_infos_places_on_place_id", using: :btree
 
+  create_table "infos_restaurants", force: :cascade do |t|
+    t.integer "info_id"
+    t.integer "restaurant_id"
+  end
+
+  add_index "infos_restaurants", ["info_id"], name: "index_infos_restaurants_on_info_id", using: :btree
+  add_index "infos_restaurants", ["restaurant_id"], name: "index_infos_restaurants_on_restaurant_id", using: :btree
+
   create_table "neighborhoods", force: :cascade do |t|
     t.string   "name"
     t.string   "city"
@@ -111,6 +119,8 @@ ActiveRecord::Schema.define(version: 20170505170831) do
   add_foreign_key "categories_franchises", "franchises"
   add_foreign_key "infos_places", "infos"
   add_foreign_key "infos_places", "places"
+  add_foreign_key "infos_restaurants", "infos"
+  add_foreign_key "infos_restaurants", "restaurants"
   add_foreign_key "places", "neighborhoods"
   add_foreign_key "restaurants", "franchises"
   add_foreign_key "restaurants", "neighborhoods"
