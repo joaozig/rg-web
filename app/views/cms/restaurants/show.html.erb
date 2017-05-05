@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="page-header">Show Restaurant</h1>
+  </div>
+</div>
+
+<div class="row">
+	<div class="col-lg-12">
+		<b>Franchise:</b> <%= @restaurant.franchise.name %>	<br>
+		<b>Name:</b> <%= @restaurant.name %>	<br>
+		<b>Slogan:</b> <%= @restaurant.slogan %>	<br>
+		<b>Address:</b> <%= @restaurant.address %> - <%= "#{@restaurant.neighborhood.name}, #{@restaurant.neighborhood.city}/PE" %> <br>
+		<b>Phone:</b> <%= @restaurant.phone %>	<br>
+		<b>Latitude:</b> <%= @restaurant.latitude %>	<br>
+		<b>Longitude:</b> <%= @restaurant.longitude %>	<br>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-lg-12">
+		<br>
+		<%= link_to 'Edit', edit_cms_restaurant_path(@restaurant) %> |
+		<%= link_to 'Back', cms_restaurants_path %>
+	</div>
+</div>

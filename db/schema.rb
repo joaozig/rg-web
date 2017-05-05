@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170505155653) do
+ActiveRecord::Schema.define(version: 20170505170831) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -91,9 +91,27 @@ ActiveRecord::Schema.define(version: 20170505155653) do
 
   add_index "places", ["neighborhood_id"], name: "index_places_on_neighborhood_id", using: :btree
 
+  create_table "restaurants", force: :cascade do |t|
+    t.string   "name"
+    t.string   "slogan"
+    t.string   "address"
+    t.string   "phone"
+    t.string   "latitude"
+    t.string   "longitude"
+    t.integer  "franchise_id"
+    t.integer  "neighborhood_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "restaurants", ["franchise_id"], name: "index_restaurants_on_franchise_id", using: :btree
+  add_index "restaurants", ["neighborhood_id"], name: "index_restaurants_on_neighborhood_id", using: :btree
+
   add_foreign_key "categories_franchises", "categories"
   add_foreign_key "categories_franchises", "franchises"
   add_foreign_key "infos_places", "infos"
   add_foreign_key "infos_places", "places"
   add_foreign_key "places", "neighborhoods"
+  add_foreign_key "restaurants", "franchises"
+  add_foreign_key "restaurants", "neighborhoods"
 end

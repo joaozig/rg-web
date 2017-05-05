@@ -57,6 +57,7 @@ Rails.application.routes.draw do
     resources :admins
     resources :places
     resources :franchises
+    resources :restaurants
     resources :categories
     resources :infos
   end

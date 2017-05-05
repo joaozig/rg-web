@@ -70,10 +70,20 @@
                         <% end %>
                     </li>
                     <li>
-                        <% active_class = @current_controller == 'franchises' ? 'active' : '' %>
-                        <%= link_to cms_franchises_path, class: active_class do %>
-                           <i class="fa fa-sitemap fa-fw"></i> Franchises
-                        <% end %>
+                        <a href="#"><i class="fa fa-cutlery fa-fw"></i> Restaurants<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <%= link_to cms_franchises_path, class: active_class do %>
+                                   <i class="fa fa-sitemap fa-fw"></i> Franchises
+                                <% end %>
+                            </li>
+                            <li>
+                                <%= link_to cms_restaurants_path, class: active_class do %>
+                                   <i class="fa fa-cutlery fa-fw"></i> Restaurants
+                                <% end %>
+                            </li>
+                        </ul>
+                        <!-- /.nav-second-level -->
                     </li>
                     <li>
                         <% active_class = @current_controller == 'categories' ? 'active' : '' %>
