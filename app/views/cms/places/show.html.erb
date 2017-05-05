@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="page-header">Show Place</h1>
+  </div>
+</div>
+
+<div class="row">
+	<div class="col-lg-12">
+		<b>Name:</b> <%= @place.name %>	<br>
+		<b>Address:</b> <%= @place.address %> - <%= "#{@place.neighborhood.name}, #{@place.neighborhood.city}/PE" %> <br>
+		<b>Phone:</b> <%= @place.phone %>	<br>
+		<b>Latitude:</b> <%= @place.latitude %>	<br>
+		<b>Longitude:</b> <%= @place.longitude %>	<br>
+		<b>Infos:</b><br>
+		<% @place.infos.each do |info| %>
+			- <%= info.title %><br>
+		<% end %>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-lg-12">
+		<br>
+		<%= link_to 'Edit', edit_cms_place_path(@place) %> |
+		<%= link_to 'Back', cms_places_path %>
+	</div>
+</div>

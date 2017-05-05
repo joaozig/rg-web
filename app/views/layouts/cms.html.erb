@@ -64,6 +64,12 @@
                         <% end %>
                     </li>
                     <li>
+                        <% active_class = @current_controller == 'places' ? 'active' : '' %>
+                        <%= link_to cms_places_path, class: active_class do %>
+                           <i class="fa fa-map-marker fa-fw"></i> Places
+                        <% end %>
+                    </li>
+                    <li>
                         <% active_class = @current_controller == 'franchises' ? 'active' : '' %>
                         <%= link_to cms_franchises_path, class: active_class do %>
                            <i class="fa fa-sitemap fa-fw"></i> Franchises
