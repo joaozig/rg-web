@@ -7,7 +7,7 @@
 <div class="row">
 	<div class="col-lg-12">
 		<b>Name:</b> <%= @franchise.name %>	<br>
-		<b>Summary:</b> <%= @franchise.summary %>	<br>
+		<b>Summary:</b> <%= simple_format(@franchise.summary) %>	<br>
 		<b>Categories:</b><br>
 		<% @franchise.categories.each do |c| %>
 			- <%= c.name %><br>
