@@ -55,5 +55,6 @@ Rails.application.routes.draw do
     root 'dashboard#index'
     get 'dashboard' => 'dashboard#index'
     resources :admins
+    resources :categories
   end
 end

@@ -60,7 +60,13 @@
                     <li>
                         <% active_class = @current_controller == 'admins' ? 'active' : '' %>
                         <%= link_to cms_admins_path, class: active_class do %>
-                    	   <i class="fa fa-users fa-fw"></i> Admins
+                           <i class="fa fa-users fa-fw"></i> Admins
+                        <% end %>
+                    </li>
+                    <li>
+                        <% active_class = @current_controller == 'categories' ? 'active' : '' %>
+                        <%= link_to cms_categories_path, class: active_class do %>
+                    	   <i class="fa fa-sitemap fa-fw"></i> Categories
                         <% end %>
                     </li>
                   </ul>
