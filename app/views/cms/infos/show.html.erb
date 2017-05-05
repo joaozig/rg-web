@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="page-header">Show Info</h1>
+  </div>
+</div>
+
+<div class="row">
+	<div class="col-lg-12">
+		<b>Title:</b> <%= @info.title %>	<br>
+		<b>Icon:</b> <%= @info.icon %>	<br>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-lg-12">
+		<br>
+		<%= link_to 'Edit', edit_cms_info_path(@info) %> |
+		<%= link_to 'Back', cms_infos_path %>
+	</div>
+</div>

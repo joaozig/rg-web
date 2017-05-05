@@ -66,7 +66,13 @@
                     <li>
                         <% active_class = @current_controller == 'categories' ? 'active' : '' %>
                         <%= link_to cms_categories_path, class: active_class do %>
-                    	   <i class="fa fa-sitemap fa-fw"></i> Categories
+                           <i class="fa fa-sitemap fa-fw"></i> Categories
+                        <% end %>
+                    </li>
+                    <li>
+                        <% active_class = @current_controller == 'infos' ? 'active' : '' %>
+                        <%= link_to cms_infos_path, class: active_class do %>
+                    	   <i class="fa fa-info fa-fw"></i> Infos
                         <% end %>
                     </li>
                   </ul>
