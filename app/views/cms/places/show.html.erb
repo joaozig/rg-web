@@ -13,7 +13,7 @@
 		<b>Longitude:</b> <%= @place.longitude %>	<br>
 		<b>Infos:</b><br>
 		<% @place.infos.each do |info| %>
-			- <%= info.title %><br>
+			- <%= "<i class='fa fa-#{info.icon} fa-fw'></i> #{info.title}".html_safe %><br>
 		<% end %>
 	</div>
 </div>

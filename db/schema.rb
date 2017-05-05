@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170505154341) do
+ActiveRecord::Schema.define(version: 20170505155653) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,14 @@ ActiveRecord::Schema.define(version: 20170505154341) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "infos_places", force: :cascade do |t|
+    t.integer "info_id"
+    t.integer "place_id"
+  end
+
+  add_index "infos_places", ["info_id"], name: "index_infos_places_on_info_id", using: :btree
+  add_index "infos_places", ["place_id"], name: "index_infos_places_on_place_id", using: :btree
+
   create_table "neighborhoods", force: :cascade do |t|
     t.string   "name"
     t.string   "city"
@@ -85,5 +93,7 @@ ActiveRecord::Schema.define(version: 20170505154341) do
 
   add_foreign_key "categories_franchises", "categories"
   add_foreign_key "categories_franchises", "franchises"
+  add_foreign_key "infos_places", "infos"
+  add_foreign_key "infos_places", "places"
   add_foreign_key "places", "neighborhoods"
 end

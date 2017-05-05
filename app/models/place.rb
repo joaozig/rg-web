@@ -1,4 +1,6 @@
 class Place < ActiveRecord::Base
   belongs_to :neighborhood
-  validates :name, :address, presence: true
+  has_and_belongs_to_many :infos
+
+  validates :name, :address, :neighborhood, presence: true
 end
