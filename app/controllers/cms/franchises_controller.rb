@@ -69,6 +69,6 @@ class Cms::FranchisesController < Cms::CmsController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def franchise_params
-      params.fetch(:franchise, {}).permit(:name, :summary)
+      params.fetch(:franchise, {}).permit(:name, :summary, category_ids: [])
     end
 end
