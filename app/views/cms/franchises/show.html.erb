@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="page-header">Show Franchise</h1>
+  </div>
+</div>
+
+<div class="row">
+	<div class="col-lg-12">
+		<b>Name:</b> <%= @franchise.name %>	<br>
+		<b>Summary:</b> <%= @franchise.summary %>	<br>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-lg-12">
+		<br>
+		<%= link_to 'Edit', edit_cms_franchise_path(@franchise) %> |
+		<%= link_to 'Back', cms_franchises_path %>
+	</div>
+</div>
