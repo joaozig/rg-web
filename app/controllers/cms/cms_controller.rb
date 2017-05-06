@@ -8,6 +8,6 @@ class Cms::CmsController < ActionController::Base
 
   def set_cms_config
   	@current_controller = controller_name
-    @cms_title = 'CMS Title'
+    @cms_title = 'Recife Gourmet'
   end
 end
