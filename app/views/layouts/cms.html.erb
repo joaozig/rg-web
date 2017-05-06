@@ -64,7 +64,7 @@
                         <% end %>
                     </li>
                     <li>
-                        <% active_class = @current_controller == 'highlights' || 'posts' ? 'active' : '' %>
+                        <% active_class = ( (@current_controller == 'highlights') || (@current_controller == 'posts') ) ? 'active' : '' %>
                         <%= link_to cms_highlights_path, class: active_class do %>
                            <i class="fa fa-star fa-fw"></i> Highlights
                         <% end %>
