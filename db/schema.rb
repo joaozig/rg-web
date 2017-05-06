@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170505173048) do
+ActiveRecord::Schema.define(version: 20170506131144) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,25 @@ ActiveRecord::Schema.define(version: 20170505173048) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "highlights", force: :cascade do |t|
+    t.string   "title"
+    t.string   "headline"
+    t.text     "content"
+    t.text     "footnote"
+    t.integer  "highligh_type"
+    t.integer  "franchise_id"
+    t.integer  "restaurant_id"
+    t.integer  "place_id"
+    t.integer  "category_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "highlights", ["category_id"], name: "index_highlights_on_category_id", using: :btree
+  add_index "highlights", ["franchise_id"], name: "index_highlights_on_franchise_id", using: :btree
+  add_index "highlights", ["place_id"], name: "index_highlights_on_place_id", using: :btree
+  add_index "highlights", ["restaurant_id"], name: "index_highlights_on_restaurant_id", using: :btree
 
   create_table "infos", force: :cascade do |t|
     t.string   "title"
@@ -117,6 +136,10 @@ ActiveRecord::Schema.define(version: 20170505173048) do
 
   add_foreign_key "categories_franchises", "categories"
   add_foreign_key "categories_franchises", "franchises"
+  add_foreign_key "highlights", "categories"
+  add_foreign_key "highlights", "franchises"
+  add_foreign_key "highlights", "places"
+  add_foreign_key "highlights", "restaurants"
   add_foreign_key "infos_places", "infos"
   add_foreign_key "infos_places", "places"
   add_foreign_key "infos_restaurants", "infos"

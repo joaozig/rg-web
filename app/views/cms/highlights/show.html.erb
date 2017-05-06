@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="page-header">Show Highlight</h1>
+  </div>
+</div>
+
+<div class="row">
+	<div class="col-lg-12">
+		<b>Type:</b> <%= @highlight.highlight_type %>	<br>
+		<b>Title:</b> <%= @highlight.generic_title %>	<br>
+		<b>Headline:</b> <%= @highlight.headline %>	<br>
+		<b>Content:</b> <%= simple_format(@highlight.content) %>	<br>
+		<b>Footnote:</b> <%= simple_format(@highlight.footnote) %>	<br>
+		<b>Franchise:</b> <%= @highlight.franchise.name if @highlight.franchise.present? %>	<br>
+		<b>Restaurant:</b> <%= @highlight.restaurant.name if @highlight.restaurant.present? %>	<br>
+		<b>Place:</b> <%= @highlight.place.name if @highlight.place.present? %>	<br>
+		<b>category:</b> <%= @highlight.category.name if @highlight.category.present? %>	<br>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-lg-12">
+		<br>
+		<%= link_to 'Edit', edit_cms_highlight_path(@highlight) %> |
+		<%= link_to 'Back', cms_highlights_path %>
+	</div>
+</div>

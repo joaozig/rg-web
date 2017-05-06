@@ -64,6 +64,12 @@
                         <% end %>
                     </li>
                     <li>
+                        <% active_class = @current_controller == 'highlights' ? 'active' : '' %>
+                        <%= link_to cms_highlights_path, class: active_class do %>
+                           <i class="fa fa-file-text fa-fw"></i> Highlights
+                        <% end %>
+                    </li>
+                    <li>
                         <% active_class = @current_controller == 'places' ? 'active' : '' %>
                         <%= link_to cms_places_path, class: active_class do %>
                            <i class="fa fa-map-marker fa-fw"></i> Places
