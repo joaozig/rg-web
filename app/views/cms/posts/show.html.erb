@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="page-header">Show Post</h1>
+  </div>
+</div>
+
+<div class="row">
+	<div class="col-lg-12">
+		<b>Highlight:</b> <%= @post.highlight.title %>	<br><br>
+		<b>Title:</b> <%= @post.title %>	<br>
+		<b>Headline:</b> <%= @post.headline %>	<br>
+		<b>Content:</b> <%= simple_format(@post.content) %>	<br>
+		<b>Footnote:</b> <%= simple_format(@post.footnote) %>	<br>
+		<b>Franchise:</b> <%= @post.franchise.name if @post.franchise.present? %>	<br>
+		<b>Restaurant:</b> <%= @post.restaurant.name if @post.restaurant.present? %>	<br>
+		<b>Place:</b> <%= @post.place.name if @post.place.present? %>	<br>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-lg-12">
+		<br>
+		<%= link_to 'Edit', edit_cms_highlight_post_path(@highlight, @post) %> |
+		<%= link_to 'Back', cms_highlight_posts_path %>
+	</div>
+</div>

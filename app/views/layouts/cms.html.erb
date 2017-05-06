@@ -64,9 +64,9 @@
                         <% end %>
                     </li>
                     <li>
-                        <% active_class = @current_controller == 'highlights' ? 'active' : '' %>
+                        <% active_class = @current_controller == 'highlights' || 'posts' ? 'active' : '' %>
                         <%= link_to cms_highlights_path, class: active_class do %>
-                           <i class="fa fa-file-text fa-fw"></i> Highlights
+                           <i class="fa fa-star fa-fw"></i> Highlights
                         <% end %>
                     </li>
                     <li>

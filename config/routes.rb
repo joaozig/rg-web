@@ -60,6 +60,8 @@ Rails.application.routes.draw do
     resources :restaurants
     resources :categories
     resources :infos
-    resources :highlights
+    resources :highlights do
+      resources :posts
+    end
   end
 end

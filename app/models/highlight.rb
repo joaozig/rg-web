@@ -1,6 +1,7 @@
 class Highlight < ActiveRecord::Base
 	enum highlight_type: [ :news, :franchise, :restaurant, :place, :category ]
 
+  has_many :posts
   belongs_to :franchise
   belongs_to :restaurant
   belongs_to :place

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170506131144) do
+ActiveRecord::Schema.define(version: 20170506174638) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,13 +61,13 @@ ActiveRecord::Schema.define(version: 20170506131144) do
     t.string   "headline"
     t.text     "content"
     t.text     "footnote"
-    t.integer  "highligh_type"
+    t.integer  "highlight_type"
     t.integer  "franchise_id"
     t.integer  "restaurant_id"
     t.integer  "place_id"
     t.integer  "category_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   add_index "highlights", ["category_id"], name: "index_highlights_on_category_id", using: :btree
@@ -118,6 +118,24 @@ ActiveRecord::Schema.define(version: 20170506131144) do
 
   add_index "places", ["neighborhood_id"], name: "index_places_on_neighborhood_id", using: :btree
 
+  create_table "posts", force: :cascade do |t|
+    t.string   "title"
+    t.string   "headline"
+    t.text     "content"
+    t.text     "footnote"
+    t.integer  "highlight_id"
+    t.integer  "franchise_id"
+    t.integer  "restaurant_id"
+    t.integer  "place_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "posts", ["franchise_id"], name: "index_posts_on_franchise_id", using: :btree
+  add_index "posts", ["highlight_id"], name: "index_posts_on_highlight_id", using: :btree
+  add_index "posts", ["place_id"], name: "index_posts_on_place_id", using: :btree
+  add_index "posts", ["restaurant_id"], name: "index_posts_on_restaurant_id", using: :btree
+
   create_table "restaurants", force: :cascade do |t|
     t.string   "name"
     t.string   "slogan"
@@ -145,6 +163,10 @@ ActiveRecord::Schema.define(version: 20170506131144) do
   add_foreign_key "infos_restaurants", "infos"
   add_foreign_key "infos_restaurants", "restaurants"
   add_foreign_key "places", "neighborhoods"
+  add_foreign_key "posts", "franchises"
+  add_foreign_key "posts", "highlights"
+  add_foreign_key "posts", "places"
+  add_foreign_key "posts", "restaurants"
   add_foreign_key "restaurants", "franchises"
   add_foreign_key "restaurants", "neighborhoods"
 end
