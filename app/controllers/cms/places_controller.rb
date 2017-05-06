@@ -4,7 +4,7 @@ class Cms::PlacesController < Cms::CmsController
   # GET /places
   # GET /places.json
   def index
-    @places = Place.all
+    @places = Place.all.order(:name)
   end
 
   # GET /places/1

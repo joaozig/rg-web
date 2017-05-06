@@ -4,7 +4,7 @@ class Cms::AdminsController < Cms::CmsController
   # GET /admins
   # GET /admins.json
   def index
-    @admins = Admin.all
+    @admins = Admin.all.order(:name)
   end
 
   # GET /admins/1

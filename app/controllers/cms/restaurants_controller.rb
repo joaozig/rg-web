@@ -4,7 +4,7 @@ class Cms::RestaurantsController < Cms::CmsController
   # GET /restaurants
   # GET /restaurants.json
   def index
-    @restaurants = Restaurant.all
+    @restaurants = Restaurant.all.order(:name)
   end
 
   # GET /restaurants/1

@@ -4,7 +4,7 @@ class Cms::PostsController < Cms::CmsController
 
   # GET /highlights/:highlight_id/posts
   def index
-    @posts = @highlight.posts.all
+    @posts = @highlight.posts.all.order(:id)
   end
 
   # GET /highlights/:highlight_id/posts/1

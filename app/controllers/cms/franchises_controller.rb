@@ -4,7 +4,7 @@ class Cms::FranchisesController < Cms::CmsController
   # GET /franchises
   # GET /franchises.json
   def index
-    @franchises = Franchise.all
+    @franchises = Franchise.all.order(:name)
   end
 
   # GET /franchises/1

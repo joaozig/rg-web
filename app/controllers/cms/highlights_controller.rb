@@ -4,7 +4,7 @@ class Cms::HighlightsController < Cms::CmsController
   # GET /highlights
   # GET /highlights.json
   def index
-    @highlights = Highlight.all
+    @highlights = Highlight.all.order(id: :desc)
   end
 
   # GET /highlights/1

@@ -4,7 +4,7 @@ class Cms::InfosController < Cms::CmsController
   # GET /infos
   # GET /infos.json
   def index
-    @infos = Info.all
+    @infos = Info.all.order(:title)
   end
 
   # GET /infos/1

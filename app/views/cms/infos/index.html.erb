@@ -27,7 +27,7 @@
                 <tr>
                   <td><%= info.id %></td>
                   <td><%= info.title %></td>
-                  <td><%= info.icon %></td>
+                  <td><%= "<i class='fa fa-#{info.icon} fa-fw'></i>".html_safe %></td>
                   <td>
                     <%= link_to cms_info_path(info) do %>
                       <i class='fa fa-eye fa-fw'></i>
