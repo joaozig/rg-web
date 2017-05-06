@@ -57,19 +57,19 @@
             <div class="col-lg-12">
               <div class="col-lg-3 form-group">
                 <label>Franchise</label>
-                <%= f.collection_select(:franchise_id, Franchise.all, :id, :name, { prompt: 'None' }, { class: 'form-control' }) %>
+                <%= f.collection_select(:franchise_id, Franchise.all, :id, :name, { include_blank: 'None' }, { class: 'form-control' }) %>
               </div>
               <div class="col-lg-3 form-group">
                 <label>Restaurant</label>
-                <%= f.collection_select(:restaurant_id, Restaurant.all, :id, :name, { prompt: 'None' }, { class: 'form-control' }) %>
+                <%= f.collection_select(:restaurant_id, Restaurant.all, :id, :name, { include_blank: 'None' }, { class: 'form-control' }) %>
               </div>
               <div class="col-lg-3 form-group">
                 <label>Place</label>
-                <%= f.collection_select(:place_id, Place.all, :id, :name, { prompt: 'None' }, { class: 'form-control' }) %>
+                <%= f.collection_select(:place_id, Place.all, :id, :name, { include_blank: 'None' }, { class: 'form-control' }) %>
               </div>
               <div class="col-lg-3 form-group">
                 <label>Category</label>
-                <%= f.collection_select(:category_id, Category.all, :id, :name, { prompt: 'None' }, { class: 'form-control' }) %>
+                <%= f.collection_select(:category_id, Category.all, :id, :name, { include_blank: 'None' }, { class: 'form-control' }) %>
               </div>
             </div>
             <div class="col-lg-12">
