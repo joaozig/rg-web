@@ -19,6 +19,7 @@
                   <th>#</th>
                   <th>Title</th>
                   <th>Type</th>
+                  <th>Status</th>
                   <th>Actions</th>
                 </tr>
               </thead>
@@ -26,10 +27,12 @@
               <% @highlights.each do |highlight| %>
                 <tr>
                   <td><%= highlight.id %></td>
-                  <td>
-                    <%= highlight.generic_title %>
-                  </td>
+                  <td><%= highlight.generic_title %></td>
                   <td><%= highlight.highlight_type %></td>
+                  <td>
+                    <span class='status status-<%= highlight.status %>'><%= highlight.status %></span>
+                    <%= link_to highlight.status_action_label, cms_highlight_change_status_path(highlight), method: :patch, data: { confirm: 'Are you sure?' } %>
+                  </td>
                   <td>
                     <%= link_to cms_highlight_path(highlight) do %>
                       <i class='fa fa-eye fa-fw'></i>

@@ -1,10 +1,10 @@
 class Cms::HighlightsController < Cms::CmsController
-  before_action :set_highlight, only: [:show, :edit, :update, :destroy]
+  before_action :set_highlight, only: [:show, :edit, :update, :destroy, :change_status]
 
   # GET /highlights
   # GET /highlights.json
   def index
-    @highlights = Highlight.all.order(id: :desc)
+    @highlights = Highlight.all.order(status: :desc, id: :desc)
   end
 
   # GET /highlights/1
@@ -61,10 +61,26 @@ class Cms::HighlightsController < Cms::CmsController
     end
   end
 
+  def change_status
+    new_status = @highlight.unpublished? ? Highlight.statuses[:published] : Highlight.statuses[:unpublished];
+    @highlight.status = new_status
+
+    respond_to do |format|
+      if @highlight.save
+        format.html { redirect_to cms_highlights_path, notice: 'Highlight status was successfully updated.' }
+        format.json { render :show, status: :created, location: @highlight }
+      else
+        format.html { redirect_to cms_highlights_path, alert: 'Highlight status not updated.' }
+        format.json { render json: @highlight.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_highlight
-      @highlight = Highlight.find(params[:id])
+      @highlight = Highlight.find(params[:id]) if params[:id].present?
+      @highlight = Highlight.find(params[:highlight_id]) if params[:highlight_id].present?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

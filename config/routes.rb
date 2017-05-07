@@ -61,6 +61,7 @@ Rails.application.routes.draw do
     resources :categories
     resources :infos
     resources :highlights do
+      patch :change_status
       resources :posts
     end
   end

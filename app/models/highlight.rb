@@ -1,5 +1,6 @@
 class Highlight < ActiveRecord::Base
-	enum highlight_type: [ :news, :franchise, :restaurant, :place, :category ]
+  enum highlight_type: [ :news, :franchise, :restaurant, :place, :category ]
+	enum status: [ :unpublished, :published ]
 
   has_many :posts
   belongs_to :franchise
@@ -27,5 +28,14 @@ class Highlight < ActiveRecord::Base
   	else
   		title
   	end
+  end
+
+  def status_action_label
+    case status
+    when 'unpublished'
+      'publish?'
+    when 'published'
+      'unpublish?'
+    end
   end
 end
