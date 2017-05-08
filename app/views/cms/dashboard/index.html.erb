@@ -1,98 +1,75 @@
 <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">Dashboard</h1>
-                </div>
-                <!-- /.col-lg-12 -->
+    <div class="col-lg-12">
+        <h1 class="page-header">Dashboard</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-3">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <i class="fa fa-eye fa-fw"></i> General View
             </div>
-            <!-- /.row -->
-            <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-comments fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">26</div>
-                                    <div>New Comments!</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="list-group">
+                    <%= link_to cms_admins_path, class: "list-group-item" do %>
+                        <i class="fa fa-users fa-fw"></i> Admins
+                        <span class="pull-right text-muted small"><em><%= Admin.count %></em>
+                        </span>
+                    <% end %>
+                    <%= link_to cms_highlights_path, class: "list-group-item" do %>
+                        <i class="fa fa-star fa-fw"></i> Highlights
+                        <span class="pull-right text-muted small"><em><%= Highlight.count %></em>
+                        </span>
+                    <% end %>
+                    <%= link_to cms_places_path, class: "list-group-item" do %>
+                        <i class="fa fa-map-marker fa-fw"></i> Places
+                        <span class="pull-right text-muted small"><em><%= Place.count %></em>
+                        </span>
+                    <% end %>
+                    <%= link_to cms_franchises_path, class: "list-group-item" do %>
+                        <i class="fa fa-cutlery fa-fw"></i> Restaurants
+                        <span class="pull-right text-muted small"><em><%= Franchise.count %></em>
+                        </span>
+                    <% end %>
+                    <%= link_to cms_categories_path, class: "list-group-item" do %>
+                        <i class="fa fa-navicon fa-fw"></i> Categories
+                        <span class="pull-right text-muted small"><em><%= Category.count %></em>
+                        </span>
+                    <% end %>
+                    <%= link_to cms_infos_path, class: "list-group-item" do %>
+                        <i class="fa fa-info fa-fw"></i> Infos
+                        <span class="pull-right text-muted small"><em><%= Info.count %></em>
+                        </span>
+                    <% end %>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-green">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-tasks fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">12</div>
-                                    <div>New Tasks!</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-yellow">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-shopping-cart fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">124</div>
-                                    <div>New Orders!</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-red">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-support fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">13</div>
-                                    <div>Support Tickets!</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
+                <!-- /.list-group -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-3 -->
+    <div class="col-lg-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <i class="fa fa-star fa-fw"></i> Published Highlights
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="list-group">
+                    <% @published_highlights.each do |highlight| %>
+                        <%= link_to cms_highlight_path(highlight), class: "list-group-item" do %>
+                            <%= highlight.generic_title %>
+                            <br>
+                            <b>type:</b> <%= highlight.highlight_type %>
+                        <% end %>
+                    <% end %>
                 </div>
             </div>
-            <!-- /.row -->
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+</div>
