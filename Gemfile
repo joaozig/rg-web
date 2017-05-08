@@ -22,6 +22,10 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
+# Easy file attachment management for ActiveRecord
+gem 'paperclip', '~> 5.0.0'
+# An easy extension for Paperclip to crop your image uploads using jCrop
+gem 'papercrop'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
