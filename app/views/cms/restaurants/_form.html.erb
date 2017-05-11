@@ -21,6 +21,12 @@
         <div class="row">
           <%= form_for([:cms, @restaurant]) do |f| %>
             <div class="col-lg-12">
+              <div class="col-lg-6 form-group">
+                <label>Image</label>
+                <%= f.file_field(:image, :class => 'form-control') %>
+              </div>
+            </div>
+            <div class="col-lg-12">
               <div class="col-lg-3 form-group">
                 <label>Franchise</label>
                 <%= f.collection_select(:franchise_id, Franchise.all, :id, :name, { prompt: true }, { class: 'form-control' }) %>

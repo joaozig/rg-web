@@ -71,6 +71,6 @@ class Cms::RestaurantsController < Cms::CmsController
     def restaurant_params
       params.fetch(:restaurant, {}).permit(
         :name, :slogan, :address, :phone, :latitude, :longitude,
-        :neighborhood_id, :franchise_id, info_ids: [])
+        :image, :neighborhood_id, :franchise_id, info_ids: [])
     end
 end
