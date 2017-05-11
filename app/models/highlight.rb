@@ -8,6 +8,9 @@ class Highlight < ActiveRecord::Base
   belongs_to :place
   belongs_to :category
 
+  has_attached_file :image, styles: { default: "300x300>" }
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+
   validates :highlight_type, presence: true
   validates :title, :content, presence: true, if: 'news?'
   validates :franchise, presence: true, if: 'franchise?'

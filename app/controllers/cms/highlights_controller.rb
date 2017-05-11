@@ -87,6 +87,8 @@ class Cms::HighlightsController < Cms::CmsController
     def highlight_params
       params.fetch(:highlight, {}).permit(
         :title, :headline, :content, :footnote, :highlight_type,
-        :franchise_id, :restaurant_id, :place_id, :category_id)
+        :franchise_id, :restaurant_id, :place_id, :category_id,
+        :image, :image_original_w, :image_original_h,
+        :image_crop_x, :image_crop_y, :image_crop_w, :image_crop_h)
     end
 end
