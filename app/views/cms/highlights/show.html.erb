@@ -18,12 +18,6 @@
 		<b>Status:</b>
     <span class='status status-<%= @highlight.status %>'><%= @highlight.status %></span>
     <%= link_to @highlight.status_action_label, cms_highlight_change_status_path(@highlight), method: :patch, data: { confirm: 'Are you sure?' } %>
-    <br><br><br>
-		<%= form_for [:cms, @highlight] do |f| %>
-		  <%= f.cropbox :image, :aspect_ratio => 4.0/3.0 %>
-		  <%= f.crop_preview :image %>
-		  <%= f.submit 'Save' %>
-		<% end %>
 	</div>
 </div>
 
