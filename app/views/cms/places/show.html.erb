@@ -15,6 +15,9 @@
 		<% @place.infos.each do |info| %>
 			- <%= "<i class='fa fa-#{info.icon} fa-fw'></i> #{info.title}".html_safe %><br>
 		<% end %>
+		<br>
+		<b>Image:</b><br>
+		<%= image_tag @place.image(:default) %>
 	</div>
 </div>
 

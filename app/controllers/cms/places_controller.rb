@@ -69,6 +69,8 @@ class Cms::PlacesController < Cms::CmsController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def place_params
-      params.fetch(:place, {}).permit(:name, :address, :neighborhood_id, :phone, :latitude, :longitude, info_ids: [])
+      params.fetch(:place, {}).permit(
+        :name, :image, :address, :neighborhood_id,
+        :phone, :latitude, :longitude, info_ids: [])
     end
 end
