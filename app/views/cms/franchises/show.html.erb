@@ -6,6 +6,12 @@
 
 <div class="row">
 	<div class="col-lg-12">
+		<b>Logo:</b><br>
+		<%= image_tag @franchise.logo(:default) %>
+		<br><br>
+		<b>Image:</b><br>
+		<%= image_tag @franchise.image(:default) %>
+		<br><br>
 		<b>Name:</b> <%= @franchise.name %>	<br>
 		<b>Summary:</b> <%= simple_format(@franchise.summary) %>	<br>
 		<b>Categories:</b><br>
