@@ -15,6 +15,9 @@
 		<b>Restaurant:</b> <%= @highlight.restaurant.name if @highlight.restaurant.present? %>	<br>
 		<b>Place:</b> <%= @highlight.place.name if @highlight.place.present? %>	<br>
 		<b>category:</b> <%= @highlight.category.name if @highlight.category.present? %>	<br><br>
+		<b>Image:</b><br>
+		<%= image_tag @highlight.image(:default) %>
+		<br><br><br>
 		<b>Status:</b>
     <span class='status status-<%= @highlight.status %>'><%= @highlight.status %></span>
     <%= link_to @highlight.status_action_label, cms_highlight_change_status_path(@highlight), method: :patch, data: { confirm: 'Are you sure?' } %>
