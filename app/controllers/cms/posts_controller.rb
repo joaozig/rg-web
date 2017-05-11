@@ -70,7 +70,7 @@ class Cms::PostsController < Cms::CmsController
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       params.fetch(:post, {}).permit(
-        :title, :headline, :content, :footnote,
+        :title, :headline, :content, :footnote, :image,
         :franchise_id, :restaurant_id, :place_id)
     end
 end

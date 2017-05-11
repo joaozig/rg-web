@@ -13,7 +13,10 @@
 		<b>Footnote:</b> <%= simple_format(@post.footnote) %>	<br>
 		<b>Franchise:</b> <%= @post.franchise.name if @post.franchise.present? %>	<br>
 		<b>Restaurant:</b> <%= @post.restaurant.name if @post.restaurant.present? %>	<br>
-		<b>Place:</b> <%= @post.place.name if @post.place.present? %>	<br>
+		<b>Place:</b> <%= @post.place.name if @post.place.present? %>	<br> <br><br>
+		<b>Image:</b><br>
+		<%= image_tag @post.image(:default) %>
+		<br><br><br>
 	</div>
 </div>
 
