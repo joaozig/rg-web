@@ -1,34 +1,33 @@
 class Cms::RestaurantsController < Cms::CmsController
+  before_action :set_franchise
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
 
-  # GET /restaurants
-  # GET /restaurants.json
+  # GET /franchises/:franchise_id/restaurants
   def index
-    @restaurants = Restaurant.all.order(:name)
+    @restaurants = @franchise.restaurants.all.order(:name)
   end
 
-  # GET /restaurants/1
-  # GET /restaurants/1.json
+  # GET /franchises/:franchise_id/restaurants/1
   def show
   end
 
-  # GET /restaurants/new
+  # GET /franchises/:franchise_id/restaurants/new
   def new
     @restaurant = Restaurant.new
   end
 
-  # GET /restaurants/1/edit
+  # GET /franchises/:franchise_id/restaurants/1/edit
   def edit
   end
 
-  # POST /restaurants
-  # POST /restaurants.json
+  # POST /franchises/franchise_id/restaurants
   def create
     @restaurant = Restaurant.new(restaurant_params)
+    @restaurant.franchise = @franchise
 
     respond_to do |format|
       if @restaurant.save
-        format.html { redirect_to cms_restaurants_path, notice: 'Restaurant was successfully created.' }
+        format.html { redirect_to cms_franchise_restaurants_path, notice: 'Restaurant was successfully created.' }
         format.json { render :show, status: :created, location: @restaurant }
       else
         format.html { render :new }
@@ -37,12 +36,11 @@ class Cms::RestaurantsController < Cms::CmsController
     end
   end
 
-  # PATCH/PUT /restaurants/1
-  # PATCH/PUT /restaurants/1.json
+  # PATCH/PUT /franchises/:franchise_id/restaurants/1
   def update
     respond_to do |format|
       if @restaurant.update(restaurant_params)
-        format.html { redirect_to cms_restaurants_path, notice: 'Restaurant was successfully updated.' }
+        format.html { redirect_to cms_franchise_restaurants_path, notice: 'Restaurant was successfully updated.' }
         format.json { render :show, status: :ok, location: @restaurant }
       else
         format.html { render :edit }
@@ -51,18 +49,20 @@ class Cms::RestaurantsController < Cms::CmsController
     end
   end
 
-  # DELETE /restaurants/1
-  # DELETE /restaurants/1.json
+  # DELETE /franchises/:franchise_id/restaurants/1
   def destroy
     @restaurant.destroy
     respond_to do |format|
-      format.html { redirect_to cms_restaurants_path, notice: 'Restaurant was successfully destroyed.' }
+      format.html { redirect_to cms_franchise_restaurants_path, notice: 'Restaurant was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    def set_franchise
+      @franchise = Franchise.find(params[:franchise_id])
+    end
+
     def set_restaurant
       @restaurant = Restaurant.find(params[:id])
     end
@@ -71,6 +71,6 @@ class Cms::RestaurantsController < Cms::CmsController
     def restaurant_params
       params.fetch(:restaurant, {}).permit(
         :name, :slogan, :address, :phone, :latitude, :longitude,
-        :image, :neighborhood_id, :franchise_id, info_ids: [])
+        :image, :neighborhood_id, info_ids: [])
     end
 end

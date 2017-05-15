@@ -35,7 +35,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html"><%= @cms_title %></a>
+                <%= link_to @cms_title, cms_root_path, class: 'navbar-brand' %>
             </div>
             <!-- /.navbar-header -->
 
@@ -76,25 +76,15 @@
                         <% end %>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-cutlery fa-fw"></i> Restaurants<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <%= link_to cms_franchises_path, class: active_class do %>
-                                   <i class="fa fa-sitemap fa-fw"></i> Franchises
-                                <% end %>
-                            </li>
-                            <li>
-                                <%= link_to cms_restaurants_path, class: active_class do %>
-                                   <i class="fa fa-cutlery fa-fw"></i> Restaurants
-                                <% end %>
-                            </li>
-                        </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
-                    <li>
                         <% active_class = @current_controller == 'categories' ? 'active' : '' %>
                         <%= link_to cms_categories_path, class: active_class do %>
                            <i class="fa fa-navicon fa-fw"></i> Categories
+                        <% end %>
+                    </li>
+                    <li>
+                        <% active_class = @current_controller == 'franchises' || @current_controller == 'restaurants' ? 'active' : '' %>
+                        <%= link_to cms_franchises_path, class: active_class do %>
+                           <i class="fa fa-cutlery fa-fw"></i> Restaurants
                         <% end %>
                     </li>
                     <li>

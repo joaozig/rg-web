@@ -56,8 +56,9 @@ Rails.application.routes.draw do
     get 'dashboard' => 'dashboard#index'
     resources :admins
     resources :places
-    resources :franchises
-    resources :restaurants
+    resources :franchises do
+      resources :restaurants
+    end
     resources :categories
     resources :infos
     resources :highlights do

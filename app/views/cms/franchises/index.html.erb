@@ -27,6 +27,9 @@
                   <td><%= franchise.id %></td>
                   <td><%= franchise.name %></td>
                   <td>
+                    <%= link_to cms_franchise_restaurants_path(franchise) do %>
+                      <i class='fa fa-cutlery fa-fw'></i>
+                    <% end %>
                     <%= link_to cms_franchise_path(franchise) do %>
                       <i class='fa fa-eye fa-fw'></i>
                     <% end %>
