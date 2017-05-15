@@ -62,7 +62,7 @@
                 <% @place.schedules.each do |schedule| %>
                   <%= f.fields_for :schedules, schedule do |fs| %>
                       <%= fs.hidden_field(:day) %>
-                      <%= t(Date::DAYNAMES[schedule.day]) %>
+                      <%= t(schedule.day_of_week) %>
                       <%= fs.text_field(:operating_hour, :class => 'form-control') %>
                       <%= fs.hidden_field :place_id, value: @place.id %>
                   <% end %>

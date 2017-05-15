@@ -69,7 +69,18 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="col-lg-12 form-group">
+              <div class="col-lg-6 form-group">
+                <label>Schedules</label><br>
+                <% @restaurant.schedules.each do |schedule| %>
+                  <%= f.fields_for :schedules, schedule do |fs| %>
+                      <%= fs.hidden_field(:day) %>
+                      <%= t(schedule.day_of_week) %>
+                      <%= fs.text_field(:operating_hour, :class => 'form-control') %>
+                      <%= fs.hidden_field :restaurant_id, value: @restaurant.id %>
+                  <% end %>
+                <% end %>
+              </div>
+              <div class="col-lg-6 form-group">
                 <label>Infos</label>
                 <%= f.collection_check_boxes(:info_ids, Info.all, :id, :title) do |b| %>
                   <div class="checkbox col-lg-12">

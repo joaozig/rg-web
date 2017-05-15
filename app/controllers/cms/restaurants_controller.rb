@@ -14,6 +14,12 @@ class Cms::RestaurantsController < Cms::CmsController
   # GET /franchises/:franchise_id/restaurants/new
   def new
     @restaurant = Restaurant.new
+
+    7.times do |i|
+      i = i + 1
+      i = 0 if i == 7
+      @restaurant.schedules.build(day: i)
+    end
   end
 
   # GET /franchises/:franchise_id/restaurants/1/edit
@@ -71,6 +77,6 @@ class Cms::RestaurantsController < Cms::CmsController
     def restaurant_params
       params.fetch(:restaurant, {}).permit(
         :name, :slogan, :address, :phone, :latitude, :longitude,
-        :image, :neighborhood_id, info_ids: [])
+        :image, :neighborhood_id, info_ids: [], schedules_attributes: [:id, :day, :operating_hour])
     end
 end

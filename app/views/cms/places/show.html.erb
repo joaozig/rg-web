@@ -10,7 +10,12 @@
 		<b>Address:</b> <%= @place.address %> - <%= "#{@place.neighborhood.name}, #{@place.neighborhood.city}/PE" %> <br>
 		<b>Phone:</b> <%= @place.phone %>	<br>
 		<b>Latitude:</b> <%= @place.latitude %>	<br>
-		<b>Longitude:</b> <%= @place.longitude %>	<br>
+		<b>Longitude:</b> <%= @place.longitude %>	<br><br>
+		<b>Schedules</b> <br>
+		<% @place.schedules.each do |schedule| %>
+			- <%= schedule.day_of_week %>: <%= schedule.operating_hour %><br>
+		<% end %>
+		<br>
 		<b>Infos:</b><br>
 		<% @place.infos.each do |info| %>
 			- <%= "<i class='fa fa-#{info.icon} fa-fw'></i> #{info.title}".html_safe %><br>

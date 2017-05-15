@@ -1,9 +1,11 @@
 class Restaurant < ActiveRecord::Base
   belongs_to :franchise
   belongs_to :neighborhood
-  has_many :schedules
+  has_many :schedules, :dependent => :destroy
   has_many :operating_hours
   has_and_belongs_to_many :infos
+
+  accepts_nested_attributes_for :schedules
 
   has_attached_file :image, styles: { default: "300x300>" },
     path: '/restaurants/:style/:id/:filename', :url => ':s3_domain_url'

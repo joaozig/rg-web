@@ -1,6 +1,6 @@
 class Place < ActiveRecord::Base
   belongs_to :neighborhood
-  has_many :schedules, :dependent => :delete_all
+  has_many :schedules, :dependent => :destroy
   has_many :operating_hours
   has_and_belongs_to_many :infos
 
