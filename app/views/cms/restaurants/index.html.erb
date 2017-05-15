@@ -33,6 +33,9 @@
                       <i class='fa fa-eye fa-fw'></i>
                     <% end %>
                     <%= link_to edit_cms_franchise_restaurant_path(@franchise, restaurant) do %>
+                      <i class='fa fa-clock-o fa-fw'></i>
+                    <% end %>
+                    <%= link_to edit_cms_franchise_restaurant_path(@franchise, restaurant) do %>
                       <i class='fa fa-pencil-square-o fa-fw'></i>
                     <% end %>
                     <%= link_to cms_franchise_restaurant_path(@franchise, restaurant), method: :delete, data: { confirm: 'Are you sure?' } do %>
