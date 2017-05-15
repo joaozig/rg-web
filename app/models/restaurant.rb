@@ -1,6 +1,8 @@
 class Restaurant < ActiveRecord::Base
   belongs_to :franchise
   belongs_to :neighborhood
+  has_many :schedules
+  has_many :operating_hours
   has_and_belongs_to_many :infos
 
   has_attached_file :image, styles: { default: "300x300>" },

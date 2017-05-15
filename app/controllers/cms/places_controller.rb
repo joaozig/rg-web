@@ -15,6 +15,12 @@ class Cms::PlacesController < Cms::CmsController
   # GET /places/new
   def new
     @place = Place.new
+
+    7.times do |i|
+      i = i + 1
+      i = 0 if i == 7
+      @place.schedules.build(day: i)
+    end
   end
 
   # GET /places/1/edit
@@ -70,7 +76,7 @@ class Cms::PlacesController < Cms::CmsController
     # Never trust parameters from the scary internet, only allow the white list through.
     def place_params
       params.fetch(:place, {}).permit(
-        :name, :image, :address, :neighborhood_id,
-        :phone, :latitude, :longitude, info_ids: [])
+        :name, :image, :address, :neighborhood_id, :phone,
+        :latitude, :longitude, info_ids: [], schedules_attributes: [:id, :day, :operating_hour])
     end
 end
