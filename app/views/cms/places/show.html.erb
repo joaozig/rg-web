@@ -6,6 +6,12 @@
 
 <div class="row">
 	<div class="col-lg-12">
+		<b>Logo:</b><br>
+		<%= image_tag @place.logo(:default) %>
+		<br><br>
+		<b>Image:</b><br>
+		<%= image_tag @place.image(:default) %>
+		<br><br>
 		<b>Name:</b> <%= @place.name %>	<br>
 		<b>Address:</b> <%= @place.address %> - <%= "#{@place.neighborhood.name}, #{@place.neighborhood.city}/PE" %> <br>
 		<b>Phone:</b> <%= @place.phone %>	<br>
@@ -21,8 +27,6 @@
 			- <%= "<i class='fa fa-#{info.icon} fa-fw'></i> #{info.title}".html_safe %><br>
 		<% end %>
 		<br>
-		<b>Image:</b><br>
-		<%= image_tag @place.image(:default) %>
 	</div>
 </div>
 
