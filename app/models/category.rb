@@ -6,4 +6,8 @@ class Category < ActiveRecord::Base
     path: '/categories/images/:style/:id/:filename', :url => ':s3_domain_url'
 
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+
+  def image_url
+    image.url(:default)
+  end
 end

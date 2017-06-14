@@ -19,6 +19,12 @@ class Highlight < ActiveRecord::Base
   validates :place, presence: true, if: 'place?'
   validates :category, presence: true, if: 'category?'
 
+  scope :published, -> { where(status: statuses[:published]) }
+
+  def image_url
+    image.url(:default)
+  end
+
   def generic_title
   	case highlight_type
   	when 'franchise'

@@ -12,4 +12,12 @@ class Franchise < ActiveRecord::Base
   validates_attachment_content_type :logo, :image, content_type: /\Aimage\/.*\z/
 
   validates :name, presence: true
+
+  def logo_url
+    logo.url(:default)
+  end
+
+  def image_url
+    image.url(:default)
+  end
 end

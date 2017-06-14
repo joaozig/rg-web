@@ -11,4 +11,8 @@ class Restaurant < ActiveRecord::Base
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
   validates :franchise, :name, :address, :neighborhood, presence: true
+
+  def image_url
+    image.url(:default)
+  end
 end
