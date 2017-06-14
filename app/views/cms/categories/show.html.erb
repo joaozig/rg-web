@@ -6,6 +6,9 @@
 
 <div class="row">
 	<div class="col-lg-12">
+		<b>Image:</b><br>
+		<%= image_tag @category.image(:default) %>
+		<br><br>
 		<b>Name:</b> <%= @category.name %>	<br>
 	</div>
 </div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170515144634) do
+ActiveRecord::Schema.define(version: 20170614170811) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,8 +37,12 @@ ActiveRecord::Schema.define(version: 20170515144634) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "categories_franchises", force: :cascade do |t|
@@ -62,6 +66,7 @@ ActiveRecord::Schema.define(version: 20170515144634) do
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
+    t.integer  "plan"
   end
 
   create_table "highlights", force: :cascade do |t|
@@ -117,19 +122,6 @@ ActiveRecord::Schema.define(version: 20170515144634) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "operating_hours", force: :cascade do |t|
-    t.integer  "day"
-    t.time     "opening_time"
-    t.time     "closing_time"
-    t.integer  "restaurant_id"
-    t.integer  "place_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
-  add_index "operating_hours", ["place_id"], name: "index_operating_hours_on_place_id", using: :btree
-  add_index "operating_hours", ["restaurant_id"], name: "index_operating_hours_on_restaurant_id", using: :btree
 
   create_table "places", force: :cascade do |t|
     t.string   "name"
@@ -202,6 +194,20 @@ ActiveRecord::Schema.define(version: 20170515144634) do
   add_index "schedules", ["place_id"], name: "index_schedules_on_place_id", using: :btree
   add_index "schedules", ["restaurant_id"], name: "index_schedules_on_restaurant_id", using: :btree
 
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.date     "birth"
+    t.integer  "gender"
+    t.string   "from"
+    t.integer  "neighborhood_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "users", ["neighborhood_id"], name: "index_users_on_neighborhood_id", using: :btree
+
   add_foreign_key "categories_franchises", "categories"
   add_foreign_key "categories_franchises", "franchises"
   add_foreign_key "highlights", "categories"
@@ -212,8 +218,6 @@ ActiveRecord::Schema.define(version: 20170515144634) do
   add_foreign_key "infos_places", "places"
   add_foreign_key "infos_restaurants", "infos"
   add_foreign_key "infos_restaurants", "restaurants"
-  add_foreign_key "operating_hours", "places"
-  add_foreign_key "operating_hours", "restaurants"
   add_foreign_key "places", "neighborhoods"
   add_foreign_key "posts", "franchises"
   add_foreign_key "posts", "highlights"
@@ -223,4 +227,5 @@ ActiveRecord::Schema.define(version: 20170515144634) do
   add_foreign_key "restaurants", "neighborhoods"
   add_foreign_key "schedules", "places"
   add_foreign_key "schedules", "restaurants"
+  add_foreign_key "users", "neighborhoods"
 end
