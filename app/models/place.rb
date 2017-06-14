@@ -1,6 +1,7 @@
 class Place < ActiveRecord::Base
   belongs_to :neighborhood
   has_many :schedules, :dependent => :destroy
+  has_many :restaurants
   has_and_belongs_to_many :infos
 
   accepts_nested_attributes_for :schedules

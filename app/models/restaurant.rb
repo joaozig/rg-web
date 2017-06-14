@@ -1,5 +1,6 @@
 class Restaurant < ActiveRecord::Base
   belongs_to :franchise
+  belongs_to :place
   belongs_to :neighborhood
   has_many :schedules, :dependent => :destroy
   has_and_belongs_to_many :infos

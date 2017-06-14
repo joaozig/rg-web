@@ -67,4 +67,12 @@ Rails.application.routes.draw do
       resources :posts
     end
   end
+
+  namespace :api do
+    resources :highlights, :only => [:index]
+    # resources :ratings, :only => [:index, :create]
+    # post 'profile/login' => 'profile#login'
+    # post 'profile/loginsocialmedia' => 'profile#loginsocialmedia'
+    # post 'profile/signup' => 'profile#signup'
+  end
 end
