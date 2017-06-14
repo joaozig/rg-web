@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="page-header">Show User</h1>
+  </div>
+</div>
+
+<div class="row">
+	<div class="col-lg-12">
+		<b>Name:</b> <%= @user.name %>	<br>
+		<b>E-mail:</b> <%= @user.email %>	<br>
+		<b>Birth:</b> <%= @user.birth %>	<br>
+		<b>Gender:</b> <%= @user.gender.capitalize %>	<br>
+		<b>From:</b> <%= @user.from.capitalize %>	<br>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-lg-12">
+		<br>
+		<%= link_to 'Voltar', cms_users_path %>
+	</div>
+</div>

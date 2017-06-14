@@ -55,6 +55,7 @@ Rails.application.routes.draw do
     root 'dashboard#index'
     get 'dashboard' => 'dashboard#index'
     resources :admins
+    resources :users, :only => [:index, :show, :destroy]
     resources :places
     resources :franchises do
       resources :restaurants
