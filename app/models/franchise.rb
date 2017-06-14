@@ -1,4 +1,6 @@
 class Franchise < ActiveRecord::Base
+  enum plan: [ :light, :default, :premium ]
+
   has_many :restaurants
   has_and_belongs_to_many :categories
 

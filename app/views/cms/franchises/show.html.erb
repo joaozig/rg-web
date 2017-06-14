@@ -12,6 +12,7 @@
 		<b>Image:</b><br>
 		<%= image_tag @franchise.image(:default) %>
 		<br><br>
+		<b>Plan:</b> <%= @franchise.plan.capitalize %>	<br>
 		<b>Name:</b> <%= @franchise.name %>	<br>
 		<b>Summary:</b> <%= simple_format(@franchise.summary) %>	<br>
 		<b>Categories:</b><br>
