@@ -70,6 +70,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :highlights, :only => [:index]
+    resources :categories, :only => [:index]
     # resources :ratings, :only => [:index, :create]
     # post 'profile/login' => 'profile#login'
     # post 'profile/loginsocialmedia' => 'profile#loginsocialmedia'
