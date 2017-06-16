@@ -29,7 +29,12 @@ private
   end
 
   def category_includes
-    { :methods => [:image_url] }
+    {
+      :methods => [:image_url],
+      :include => {
+        :franchises => franchise_includes
+      }
+    }
   end
 
   def place_includes
