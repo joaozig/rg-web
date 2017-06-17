@@ -76,7 +76,7 @@ class Cms::RestaurantsController < Cms::CmsController
     # Never trust parameters from the scary internet, only allow the white list through.
     def restaurant_params
       params.fetch(:restaurant, {}).permit(
-        :name, :slogan, :address, :phone, :latitude, :longitude,
+        :name, :slogan, :address, :phone, :latitude, :longitude, :place_id,
         :image, :neighborhood_id, info_ids: [], schedules_attributes: [:id, :day, :operating_hour])
     end
 end

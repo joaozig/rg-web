@@ -13,6 +13,7 @@
 		<b>Name:</b> <%= @restaurant.name %>	<br>
 		<b>Slogan:</b> <%= @restaurant.slogan %>	<br>
 		<b>Address:</b> <%= @restaurant.address %> - <%= "#{@restaurant.neighborhood.name}, #{@restaurant.neighborhood.city}/PE" %> <br>
+		<b>Place:</b> <%= @restaurant.place.present? ? @restaurant.place.name : 'None' %>	<br>
 		<b>Phone:</b> <%= @restaurant.phone %>	<br>
 		<b>Latitude:</b> <%= @restaurant.latitude %>	<br>
 		<b>Longitude:</b> <%= @restaurant.longitude %>	<br><br>
