@@ -7,6 +7,7 @@ class Api::PlacesController < ApplicationController
       :methods => [:logo_url, :image_url],
       :include => [
         :neighborhood,
+        :schedules => { :methods => [:day_of_week] },
         :restaurants => restaurant_includes
       ]
     )
