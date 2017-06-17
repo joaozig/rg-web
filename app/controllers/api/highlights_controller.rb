@@ -40,9 +40,10 @@ private
   def place_includes
     {
       :methods => [:logo_url, :image_url],
-      :include => {
+      :include => [
+        :neighborhood,
         :restaurants => restaurant_includes
-      }
+      ]
     }
   end
 
