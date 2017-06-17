@@ -13,7 +13,7 @@
 		<%= image_tag @place.image(:default) %>
 		<br><br>
 		<b>Name:</b> <%= @place.name %>	<br>
-		<b>Summary:</b> <%= simple_format(@franchise.summary) %>	<br>
+		<b>Summary:</b> <%= simple_format(@place.summary) %>	<br>
 		<b>Address:</b> <%= @place.address %> - <%= "#{@place.neighborhood.name}, #{@place.neighborhood.city}/PE" %> <br>
 		<b>Phone:</b> <%= @place.phone %>	<br>
 		<b>Latitude:</b> <%= @place.latitude %>	<br>
